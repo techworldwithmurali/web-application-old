@@ -3,6 +3,10 @@ pipeline {
     tools{
         maven 'maven3'
     }
+    triggers {
+  cron 'H/1 * * * *'
+}
+
   options {
   buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '6', numToKeepStr: '10')
   timestamps()
