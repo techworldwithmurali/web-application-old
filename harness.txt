@@ -1,0 +1,1 @@
+Harness tool is a platform for developers and devops teams to build and deploy softwares seamlessly

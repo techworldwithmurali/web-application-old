@@ -1,0 +1,37 @@
+pipeline:
+  name: webapplication-sample
+  identifier: webapplicationsample
+  projectIdentifier: firstproject
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: githubconnect
+        repoName: sangameshpatel/web-application
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: list files
+                  identifier: list_files
+                  spec:
+                    shell: Sh
+                    command: |-
+                      echo "list workspace files"
+                      ls -la
